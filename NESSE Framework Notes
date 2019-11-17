@@ -1,0 +1,30 @@
+The NESSE Framework requires multiple inputs from JDFTx.
+
+They are as follows:
+
+For hot carrier generation
+
+  1) fkn and fkn' 
+      These are the ocupations of the states kn and kn'. These are computed using the jdftx exicutible. 
+  2) Ekn and Ekn' 
+      These are the energies of the states kn and kn'. Theae are computed using the jdftx esicutable. 
+  3) <p>k n n'
+      This is the momentime matrix where each element is <kn|p|kn'> it is important to note that this is a complex 3-vector, and is hence represented by six numbers in the momentum dump file. So the total number of floats is nStates^2*6. This matrix is calculated from the jdftx exicutible. 
+  4) nk'-k,alpha
+      This is the Bose occupation indexed by wave vector k'-k and polarization alpha. This comes from the phonon exicutible.
+  5) hbar omega k'-k, aplha
+      This is the phonon energy for a phonon indexed by wave vector k'-k and polarization alphs. This comes from the phonon exicutible.
+  6) g k'-k,alpha k'n', kn1
+      This is the momentum matrix for electron-phonon interactions. It must come from the phonon exicutible but I'm not yet sure how to accomplish this.
+     
+ For scattering matrix
+ 
+  1) Same as above
+  2) G
+      reciprical lattice vectors
+  3) rho tilda k'n',kn
+      still not fully understood by me.
+  4) epsilon^-1 GG'
+      This is the inverse dielectric tensor, it comes from the random phase approsimation but I dont understand how to do this yet.
+  
+  
